@@ -13,8 +13,9 @@ const app = new Hono<AppBindings>({ strict: false });
 app.use(requestId());
 app.use(logger());
 
-app.route("/", openApi);
 app.get("/", c => c.text("Hono!"));
+
+app.route("/", openApi);
 
 app.onError(onError);
 app.notFound(notFound);
