@@ -1,20 +1,25 @@
 {
   "name": "@gglennd/hono-api-starter",
-  "version": "1.0.0",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "lint": "eslint"
   },
   "dependencies": {
     "hono": "^4.7.11"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.14.1",
     "@cloudflare/workers-types": "^4.20250607.0",
     "@hono/vite-build": "^1.6.2",
     "@hono/vite-dev-server": "^0.19.1",
+    "@types/node": "^22.15.30",
+    "eslint": "^9.28.0",
+    "eslint-plugin-format": "^1.0.1",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "wrangler": "^4.19.1"
