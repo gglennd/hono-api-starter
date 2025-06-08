@@ -10,7 +10,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "hono": "^4.7.11"
+    "hono": "^4.7.11",
+    "hono-pino": "^0.8.0",
+    "pino": "^9.7.0",
+    "zod": "^3.25.56"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.14.1",
@@ -20,6 +23,7 @@
     "@types/node": "^22.15.30",
     "eslint": "^9.28.0",
     "eslint-plugin-format": "^1.0.1",
+    "pino-pretty": "^13.0.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "wrangler": "^4.19.1"

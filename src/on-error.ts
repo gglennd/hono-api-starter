@@ -11,13 +11,11 @@ const onError: ErrorHandler = (err, c) => {
     ? (currentStatus as StatusCode)
     : INTERNAL_SERVER_ERROR;
 
-  // eslint-disable-next-line node/no-process-env
-  const env = c.env?.NODE_ENV || process.env?.NODE_ENV;
   return c.json(
     {
       message: err.message,
 
-      stack: env === "production"
+      stack: c.env.NODE_ENV === "production"
         ? undefined
         : err.stack,
     },

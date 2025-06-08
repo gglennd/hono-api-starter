@@ -1,9 +1,16 @@
 import { Hono } from "hono";
+import { requestId } from "hono/request-id";
+
+import type { AppBindings } from "@/types";
 
 import notFound from "@/not-found";
 import onError from "@/on-error";
+import { logger } from "@/pino-logger";
 
-const app = new Hono();
+const app = new Hono<AppBindings>();
+
+app.use(requestId());
+app.use(logger());
 
 app.get("/", c => c.text("Hono!"));
 
