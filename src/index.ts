@@ -5,13 +5,15 @@ import type { AppBindings } from "@/types";
 
 import notFound from "@/not-found";
 import onError from "@/on-error";
+import openApi from "@/openapi";
 import { logger } from "@/pino-logger";
 
-const app = new Hono<AppBindings>();
+const app = new Hono<AppBindings>({ strict: false });
 
 app.use(requestId());
 app.use(logger());
 
+app.route("/", openApi);
 app.get("/", c => c.text("Hono!"));
 
 app.onError(onError);
