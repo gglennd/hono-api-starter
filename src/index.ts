@@ -1,23 +1,14 @@
-import { Hono } from "hono";
-import { requestId } from "hono/request-id";
+import createApp from "@/lib/create-app";
+import openapi from "@/lib/openapi";
+import index from "@/routes/route.index";
 
-import type { AppBindings } from "@/types";
+const openAPI = openapi();
+const router = [index] as const;
+router.map(route => openAPI.route("/api", route));
 
-import notFound from "@/not-found";
-import onError from "@/on-error";
-import openApi from "@/openapi";
-import { logger } from "@/pino-logger";
-
-const app = new Hono<AppBindings>({ strict: false });
-
-app.use(requestId());
-app.use(logger());
+const app = createApp();
 
 app.get("/", c => c.text("Hono!"));
-
-app.route("/", openApi);
-
-app.onError(onError);
-app.notFound(notFound);
+app.route("/", openAPI);
 
 export default app;

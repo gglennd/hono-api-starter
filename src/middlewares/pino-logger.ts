@@ -11,9 +11,9 @@ export function logger() {
     pino: pino({ level: c.env.LOG_LEVEL || "info" }, c.env.NODE_ENV === "production"
       ? undefined
       : pretty({
-        colorize: true,
-        translateTime: "SYS:standard",
-        ignore: "pid,hostname",
-      })),
+          colorize: true,
+          translateTime: "SYS:standard",
+          ignore: "pid,hostname",
+        })),
   })(c as unknown as Context<Env>, next)) satisfies MiddlewareHandler<AppBindings>;
 }

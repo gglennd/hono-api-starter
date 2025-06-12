@@ -1,7 +1,7 @@
 import { createRoute } from "@hono/zod-openapi";
 import { z } from "zod";
 
-import { createRouter } from "@/create-router";
+import { createRouter } from "@/lib/openapi";
 
 const router = createRouter().openapi(
   createRoute({
